@@ -1,0 +1,21 @@
+{
+    "name": "adds/api-basic-slim",
+    "description": "Una API básica de Slim",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "lorena2119",
+            "email": "189173816+lorena2119@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "slim/slim": "^4.10",
+        "slim/psr7": "^1.7"
+    }
+}
