@@ -3,7 +3,7 @@
         'name' => 'adds/api-basic-slim',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '4e3b4ec19ab5cdf3ae731a4d24e606d23cb36ab6',
+        'reference' => '6695e715c8a64598d92d4d77ad8989f13d558cc7',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'adds/api-basic-slim' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '4e3b4ec19ab5cdf3ae731a4d24e606d23cb36ab6',
+            'reference' => '6695e715c8a64598d92d4d77ad8989f13d558cc7',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -154,6 +154,24 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'php-di/invoker' => array(
+            'pretty_version' => '2.3.6',
+            'version' => '2.3.6.0',
+            'reference' => '59f15608528d8a8838d69b422a919fd6b16aa576',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../php-di/invoker',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'php-di/php-di' => array(
+            'pretty_version' => '7.0.11',
+            'version' => '7.0.11.0',
+            'reference' => '32f111a6d214564520a57831d397263e8946c1d2',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../php-di/php-di',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'phpoption/phpoption' => array(
             'pretty_version' => '1.9.3',
             'version' => '1.9.3.0',
@@ -191,6 +209,7 @@
             'dev_requirement' => false,
             'provided' => array(
                 0 => '1.1|2.0',
+                1 => '^1.0',
             ),
         ),
         'psr/http-factory' => array(
