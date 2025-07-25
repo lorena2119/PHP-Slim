@@ -1,6 +1,8 @@
 <?php
 
 use App\Controllers\CamperController;
+use App\Middleware\AuthMiddleware;
+use App\Middleware\RoleMiddleware;
 use Slim\App;
 
 return function(App $app){
@@ -10,5 +12,6 @@ return function(App $app){
         $group->post('', [CamperController::class, 'store']);
         $group->put('/{documento}', [CamperController::class, 'update']);
         $group->delete('/{documento}', [CamperController::class, 'destroy']);
-    });
+    })->add(new RoleMiddleware('user'))
+        ->add(new AuthMiddleware());
 };

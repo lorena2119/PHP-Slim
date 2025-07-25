@@ -25,3 +25,14 @@ VALUES
 ('Andrés Gómez', 23, '1008234574', 'Pasaporte', 2, 3),
 ('María Fernanda Ruiz', 25, '1009234575', 'Cédula', 5, 5),
 ('Jhonatan Páez', 19, '1010234576', 'Cédula', 3, 2);
+
+CREATE TABLE `usuarios`
+(
+    `id`     int          NOT NULL AUTO_INCREMENT,
+    `nombre` varchar(100) NOT NULL,
+    `email`  varchar(100) NOT NULL,
+    `password`  varchar(255) NOT NULL,
+    `rol`  enum('admin', 'user') NOT NULL DEFAULT 'user',
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `email` (`email`)
+);
