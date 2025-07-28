@@ -5,6 +5,8 @@ require_once "vendor/autoload.php";
 use App\Infraestructure\Database\Connection;
 use Slim\Factory\AppFactory;
 use Dotenv\Dotenv;
+use Psr\Http\Message\ResponseFactoryInterface;
+use Slim\Interfaces\ErrorHandlerInterface;
 
 // Variables de .env
 $dotenv = Dotenv::createImmutable(__DIR__.'/');
@@ -20,6 +22,13 @@ AppFactory::setContainer($container);
 Connection::init();
 
 $app = AppFactory::create();
+
+// inyectamos ResponseFactory que necesita nuestro CustomErrorHandler
+$container->set(ResponseFactoryInterface::class, $app->getResponseFactory());
+
+// Definir quién va a manejar los errores
+$errorHandler = $app->addErrorMiddleware(true, true, true);
+$errorHandler->setDefaultErrorHandler($container->get(ErrorHandlerInterface::class));
 
 // Ejecutando scripts de public
 (require_once 'public/index.php')($app);

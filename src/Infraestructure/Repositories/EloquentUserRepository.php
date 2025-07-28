@@ -6,9 +6,11 @@ use App\Domain\Models\User;
 use App\Domain\Repositories\UserRepositoryInterface;
 use Exception;
 use Slim\Psr7\Message;
+use App\DTOs\UserDTO;
 
 class EloquentUserRepository implements UserRepositoryInterface{
-    public function create(array $data): User{
+    public function create(UserDTO $dto): User{
+        $data = $dto->toArray();
         $exists = User::where('email', $data['email'])->first();
         if ($exists) {
             throw new Exception('Error, el usuario ya existe');
